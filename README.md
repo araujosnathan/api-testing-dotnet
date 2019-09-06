@@ -2,7 +2,7 @@
 
 Hey,
 
-It's a simple project for API Testing with C# with HttpClient, FluentAssertions and FluentObjetcs. </br>
+It's a simple project for API Testing with C# with Xunit, HttpClient, FluentAssertions and FluentObjetcs. </br>
 First of all, you have downloading/clone this project for your PC and to install all dependencies. Okay?
 
 Do you have dotnet installed? If not, you can know how to install in this link: https://dotnet.microsoft.com/</br>
