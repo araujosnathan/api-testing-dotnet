@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Autor: Nathanael Silva
+
 namespace Rest.API.Testing.FluentObjetcs
 {
     public class SerieBuilder
@@ -9,10 +10,10 @@ namespace Rest.API.Testing.FluentObjetcs
         {
             this.SerieData = new Serie
             {
-                name = "Dark",
-                year = "2018",
-                season = "2",
-                genre = "Drama"
+                Name = "Dark",
+                Year = "2018",
+                Season = "2",
+                Genre = "Drama"
 
             };
             return this;
@@ -25,25 +26,49 @@ namespace Rest.API.Testing.FluentObjetcs
 
         public SerieBuilder WithoutName()
         {
-            this.SerieData.name = null;
+            this.SerieData.Name = null;
+            return this;
+        }
+
+        public SerieBuilder WithName(string name)
+        {
+            this.SerieData.Name = name;
+            return this;
+        }
+
+        public SerieBuilder WithYear(string year)
+        {
+            this.SerieData.Year = year;
+            return this;
+        }
+
+        public SerieBuilder WithSeason(string season)
+        {
+            this.SerieData.Season = season;
+            return this;
+        }
+
+        public SerieBuilder WithGenre(string genre)
+        {
+            this.SerieData.Genre = genre;
             return this;
         }
 
         public SerieBuilder WithoutYear()
         {
-            this.SerieData.year = null;
+            this.SerieData.Year = null;
             return this;
         }
 
         public SerieBuilder WithoutSeason()
         {
-            this.SerieData.season = null;
+            this.SerieData.Season = null;
             return this;
         }
 
         public SerieBuilder WithoutGenre()
         {
-            this.SerieData.genre = null;
+            this.SerieData.Genre = null;
             return this;
         }
 

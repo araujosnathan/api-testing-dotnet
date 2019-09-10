@@ -1,6 +1,7 @@
-namespace Rest.API.Testing
+//Autor: Nathanael Silva
+
+namespace Rest.API.Testing.Tests
 {
-    using System;
     using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
@@ -11,11 +12,8 @@ namespace Rest.API.Testing
     using Rest.API.Testing.FluentObjetcs;
     using Xunit;
 
-    public class CreateSerieTests
-    {
-        readonly HttpClient restApi = new HttpClient();
-        readonly string baseUrl = "http://localhost:3000/api/series";
-
+    public class CreateSerieTests : Context
+    { 
 
         [Theory]
         [MemberData(nameof(SerieData))]
@@ -52,10 +50,12 @@ namespace Rest.API.Testing
 
             Serie response = JsonConvert.DeserializeObject<Serie>(await httpResponse.Content.ReadAsStringAsync());
 
+
             response
                 .Should()
-                .BeEquivalentTo(serieData.Build());
-          
+                .BeEquivalentTo(serieData.Build(), options => options.Excluding(serie => serie._Id));
+
+            _ = await this.restApi.DeleteAsync($"{this.baseUrl}/{response._Id}");
 
         }
 
@@ -84,7 +84,5 @@ namespace Rest.API.Testing
                                   .WithoutGenre()
             };
         }
-
-
     }
 }
